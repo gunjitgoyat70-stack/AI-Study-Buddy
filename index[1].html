@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Study Buddy - a smart study planner, quiz and learning assistant for students.">
+  <title>AI Study Buddy | Learn Smarter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home"><span class="brand-mark">✦</span><span>study<span class="brand-light">buddy</span></span></a>
+      <p class="side-label">WORKSPACE</p>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link active" href="#home"><span>⌂</span> Overview</a>
+        <a class="nav-link" href="#assistant"><span>✧</span> AI Assistant</a>
+        <a class="nav-link" href="#planner"><span>▦</span> Study Planner</a>
+        <a class="nav-link" href="#quiz"><span>▤</span> Quick Quiz</a>
+        <a class="nav-link" href="#progress"><span>◷</span> My Progress</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="focus-card">
+          <div class="focus-icon">✦</div>
+          <strong>Small steps,<br>big results.</strong>
+          <p>Keep showing up. Your future self will thank you.</p>
+        </div>
+        <a class="nav-link" href="#about"><span>ⓘ</span> About</a>
+      </div>
+    </aside>
+
+    <main class="main-content" id="home">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong>Overview</strong></div>
+        <div class="profile"><span class="status-dot"></span><span class="avatar">S</span><span class="profile-name">Student</span></div>
+      </header>
+
+      <section class="welcome-section">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL LEARNING SPACE</p>
+          <h1>Make today<br> <span>count.</span> ✨</h1>
+          <p class="welcome-copy">A little progress each day adds up to big results. What would you like to learn today?</p>
+          <a class="primary-btn" href="#planner">Plan my study day <span>→</span></a>
+        </div>
+        <div class="hero-art" aria-label="Illustration of books and a graduation cap">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="spark spark-one">✦</div><div class="spark spark-two">✧</div>
+          <div class="book book-back"></div><div class="book book-front"></div>
+          <div class="cap"><div class="cap-top"></div><div class="cap-base"></div><div class="cap-tassel"></div></div>
+          <div class="hero-note">LEARN<br>GROW<br>REPEAT</div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Study summary">
+        <article class="stat-card"><div class="stat-top"><span>Tasks completed</span><span class="stat-icon lavender">✓</span></div><strong id="completedCount">0</strong><small>Keep up the good work</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Tasks planned</span><span class="stat-icon peach">▦</span></div><strong id="plannedCount">0</strong><small>Your study to-do list</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Quiz best score</span><span class="stat-icon mint">★</span></div><strong id="bestScore">0%</strong><small>Practice makes progress</small></article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel assistant-panel" id="assistant">
+          <div class="panel-heading"><div><p class="eyebrow">STUDY SUPPORT</p><h2>Meet your AI buddy</h2></div><span class="online-pill"><i></i> Ready to help</span></div>
+          <p class="section-copy">Ask a study question or choose a prompt to get started.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Explain photosynthesis in simple words">Explain a topic</button>
+            <button class="suggestion" data-prompt="Give me tips to focus while studying">Study tips</button>
+            <button class="suggestion" data-prompt="Help me prepare for an exam">Exam preparation</button>
+          </div>
+          <div class="chat-box" id="chatBox" aria-live="polite">
+            <div class="chat-message bot"><span class="chat-avatar">✦</span><p>Hi there! I'm your Study Buddy. Ask me a question or choose one of the suggestions above. 🌱</p></div>
+          </div>
+          <form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Your question</label><input id="chatInput" type="text" placeholder="Ask me anything about studying..." autocomplete="off" required><button type="submit" aria-label="Send message">↑</button></form>
+          <p class="helper-note">Demo assistant: responses are generated from built-in study prompts, not a live AI service.</p>
+        </section>
+
+        <section class="panel planner-panel" id="planner">
+          <div class="panel-heading"><div><p class="eyebrow">STAY ON TRACK</p><h2>Today's study plan</h2></div><span class="date-chip" id="todayDate"></span></div>
+          <form class="task-form" id="taskForm"><label class="sr-only" for="taskInput">Add a study task</label><input id="taskInput" type="text" placeholder="Add a subject or task..." required><button class="add-btn" type="submit">+ Add</button></form>
+          <div class="task-list" id="taskList"><p class="empty-state">No tasks yet. Add your first study goal above!</p></div>
+        </section>
+      </div>
+
+      <section class="panel quiz-panel" id="quiz">
+        <div class="panel-heading"><div><p class="eyebrow">TEST YOUR KNOWLEDGE</p><h2>Quick knowledge check</h2></div><span class="quiz-tag">5 QUESTIONS</span></div>
+        <p class="section-copy">A quick practice round to warm up your brain. Choose one answer for each question.</p>
+        <div id="quizArea">
+          <div class="quiz-start"><div class="quiz-illustration">?</div><div><strong>Ready for a mini challenge?</strong><p>Try 5 beginner-friendly questions and see how you do.</p></div><button class="primary-btn" id="startQuiz">Start quiz <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section class="panel progress-panel" id="progress">
+        <div class="panel-heading"><div><p class="eyebrow">YOUR JOURNEY</p><h2>Progress snapshot</h2></div><span class="stat-icon mint">↗</span></div>
+        <div class="progress-row"><div><strong>Task completion</strong><span id="progressText">0% completed</span></div><div class="progress-track"><div class="progress-fill" id="progressFill"></div></div></div>
+        <p class="section-copy">Your tasks and quiz scores are saved in this browser on this device.</p>
+      </section>
+
+      <section class="about-strip" id="about"><div class="about-symbol">✦</div><div><strong>Built for curious minds.</strong><p>AI Study Buddy brings your study planning, practice and learning support into one simple space.</p></div><a href="#home">Back to top ↑</a></section>
+      <footer>© 2026 AI Study Buddy · Learn at your own pace.</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
